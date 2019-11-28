@@ -447,6 +447,7 @@ var HistoriadorPage = /** @class */ (function () {
         this.botaoDeCorAtivo = [1, 1, 1, 1];
         this.botaoDeTipografiaAtivo = [1, 1, 1, 1];
         this.botaoDeLayoutAtivo = [1, 1, 1, 1];
+        this.bonecoAcordado = true;
     }
     HistoriadorPage.prototype.ionViewDidLoad = function () {
         this.carregaLayoutNormal();
@@ -472,18 +473,554 @@ var HistoriadorPage = /** @class */ (function () {
     };
     // -------------- ART DECO --------------
     HistoriadorPage.prototype.exibeDialogoArtDeco = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        var jose = document.getElementById('jose');
-        balaoDeDialogo.innerHTML =
-            "Art Déco é um estilo de artes visuais, arquitetura e design internacional que começou na Europa, em 1910, e teve o seu apogeu entre os anos 1920 e 1930. O Art Déco era criticado por correntes modernistas por seu excesso de decoração. Por conta disso, acabava beneficiando os mais ricos. Teve seu declínio entre os anos de 1935 e 1939.";
-        jose.className = "jose feliz";
-        var degrees = 0;
-        jose.onclick = function () {
-            degrees += 1800;
-            jose.style.webkitTransform = "rotateY(" + degrees + "deg) scale(0.3)";
-            jose.style.transform = "rotateY(" + degrees + "deg) scale(0.3)";
-        };
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            var jose = document.getElementById('jose');
+            jose.className = "jose feliz";
+            balaoDeDialogo.innerHTML =
+                "Art Déco é um estilo de artes visuais, arquitetura e design internacional que começou na Europa, em 1910, e teve o seu apogeu entre os anos 1920 e 1930. O Art Déco era criticado por correntes modernistas por seu excesso de decoração. Por conta disso, acabava beneficiando os mais ricos. Teve seu declínio entre os anos de 1935 e 1939.";
+            // var typing = Typing(texto);
+            // typing();
+        }
+    };
+    HistoriadorPage.prototype.aplicaLayoutArtDeco = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "O layout reforça as fortes linhas verticais, os seus ornamentos e as formas aerodinâmicas da Art Deco, que refletiam os arranha-céus, carros, arte, móveis, jóias, moda e até a música da época.";
+            /*
+            var typing = null;
+            typing();
+            typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-layout-1").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[0] = "D";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeLayoutAtivo = [1, 0, 0, 0];
+            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
+                if (this.botaoDeLayoutAtivo[i] !== 1) {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaCorArtDeco = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "Cores como prata, ouro, azul metálico e cinzas de carvão também representavam a riqueza e a prosperidade da década de 20. Acabamentos metálicos adicionam brilho, glamour e implicam em luxo e riqueza.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-cor-1").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[1] = "D";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeCorAtivo = [1, 0, 0, 0];
+            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
+                if (this.botaoDeCorAtivo[i] !== 1) {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaFonteArtDeco = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "A estética da tipografia Art Déco refletia grande parte das transições culturais entre as décadas de 1920 e 1940, quando máquinas, metais e trens de carga começaram a mudar o mundo. As tipografias sem serifa e geométricas são refinadas e elegantes, com maior contraste e junções abruptas.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-tipografia-1").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[2] = "D";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeTipografiaAtivo = [1, 0, 0, 0];
+            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
+                if (this.botaoDeTipografiaAtivo[i] !== 1) {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    // -------------- ART NOVEAU --------------
+    HistoriadorPage.prototype.exibeDialogoArtNoveau = function () {
+        if (this.bonecoAcordado) {
+            var jose = document.getElementById('jose');
+            jose.className = "jose confuso";
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "Art Nouveau foi um estilo internacional que prosperou no fim do século XIX e começo do século XX. Englobou todas as artes projetuais – arquitetura, design de mobiliário e produto, moda e artes gráficas. Uso da linha orgânica, baseada na natureza. Movimentos lineares naturais dominavam a área espacial e outras propriedades visuais.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+    };
+    HistoriadorPage.prototype.aplicaLayoutArtNoveau = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.innerHTML = "O layout Art Nouveau caracteriza-se pelo uso de ornamentos florais, traçados curvilíneos com fortes contornos como numa moldura. As flores, os arcos, as formas da natureza trazem a ideia de movimento às obras.";
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-layout-2").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[0] = "Nv";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeLayoutAtivo = [0, 1, 0, 0];
+            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
+                if (this.botaoDeLayoutAtivo[i] !== 1) {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaCorArtNoveau = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "O Art Nouveau concentra-se fortemente em cores quentes e dessaturadas, dando um ar de desbotado, empoeirado. Quando se adiciona cores quentes, por conta da falta de saturação, obtém-se um efeito romântico, nostálgico, sonhador.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo não permite que usuário clique em botão já clicado
+        if (document.getElementById("escola-cor-2").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[1] = "Nv";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeCorAtivo = [0, 1, 0, 0];
+            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
+                if (this.botaoDeCorAtivo[i] !== 1) {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaFonteArtNoveau = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "A tipologia Art Nouveau é estilizada, elegante e com fontes extremamente decorativas, derivadas de formas orgânicas. Incluem acabamentos decorativos, “cinturas” altas ou baixas, formas triangulares e diagonais dos caracteres, ênfase nas partes superior ou inferior e linhas transversais angulosas";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-tipografia-2").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[2] = "Nv";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeTipografiaAtivo = [0, 1, 0, 0];
+            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
+                if (this.botaoDeTipografiaAtivo[i] !== 1) {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    // -------------- BAUHAUS --------------
+    HistoriadorPage.prototype.exibeDialogoBauhaus = function () {
+        if (this.bonecoAcordado) {
+            var jose = document.getElementById('jose');
+            jose.className = "jose surpreso";
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "Bauhaus foi a primeira escola de Design do mundo. Ela surgiu na Alemanha e é uma das maiores expressões do Modernismo. Características como um leque reduzido de cores, uso de formas geométricas claras e simples e construção da informação visual dentro de um sistema rígido (grid) foram aplicadas a problemas funcionais e à produção mecânica dentro da escola.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+    };
+    HistoriadorPage.prototype.aplicaLayoutBauhaus = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "No layout as formas primárias geométricas definem-se como elementos dinâmicos, bordas que são ultrapassadas e linhas firmes.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-layout-3").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[0] = "B";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeLayoutAtivo = [0, 0, 1, 0];
+            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
+                if (this.botaoDeLayoutAtivo[i] !== 1) {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaCorBauhaus = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "Forte uso das cores primárias e vibrantes eram tomadas como ponto de partida para qualquer produção. As cores também eram representadas pelas formas primárias (vermelho = quadrado, triângulo = amarelo, azul = circulo).";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-cor-3").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[1] = "B";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeCorAtivo = [0, 0, 1, 0];
+            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
+                if (this.botaoDeCorAtivo[i] !== 1) {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaFonteBauhaus = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "A Bauhaus utiliza de uma tipografia mais moderna, enxuta e precisa, com princípios do construtivismo. Mistura versões condensadas e expandidas de fontes góticas e sem serifa.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-tipografia-3").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[2] = "B";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeTipografiaAtivo = [0, 0, 1, 0];
+            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
+                if (this.botaoDeTipografiaAtivo[i] !== 1) {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    // -------------- POP ART --------------
+    HistoriadorPage.prototype.exibeDialogoPopArt = function () {
+        if (this.bonecoAcordado) {
+            var jose = document.getElementById('jose');
+            jose.className = "jose explicando";
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "O Pop Art surge em meados de 1950, na Inglaterra, mas alcança sua maior fama nos Estados Unidos em 1960. O movimento buscava unir a familiaridade da sociedade com a cultura de consumo e de massa. O resultado eram imagens que documentavam, ao mesmo tempo que parodiavam, conceitos familiares dos Estados Unidos modernos.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+    };
+    HistoriadorPage.prototype.aplicaLayoutPopArt = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "O layout traz a estética dos quadrinhos que o artista Roy Lichtenstein usava como uma forma de criticar a cultura de massas, o consumismo e a economia doméstica.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-layout-4").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[0] = "P";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeLayoutAtivo = [0, 0, 0, 1];
+            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
+                if (this.botaoDeLayoutAtivo[i] !== 1) {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaCorPopArt = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "O design pop inspirava-se nas cores do arco íris: saturadas e contrastantes. Tons vibrantes para criar deliberadamente efeitos ópticos dissonantes.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-cor-4").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[1] = "P";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeCorAtivo = [0, 0, 0, 1];
+            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
+                if (this.botaoDeCorAtivo[i] !== 1) {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    HistoriadorPage.prototype.aplicaFontePopArt = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "A tipografia Pop Art geralmente eram manuscritos, posteriormente com referências ao Art Nouveau, até mesmo psicodélicos. Chamativa, principalmente ligada ao consumismo e à venda exagerada.";
+            /*
+            var typing = Typing(texto);
+            typing();
+            */
+        }
+        // Linha abaixo só permite clicar quando não já está clicado
+        if (document.getElementById("escola-tipografia-4").style.opacity != "1") {
+            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
+            this.caracteristicas[2] = "P";
+            var sufixo = "";
+            for (var i = 0; i < this.caracteristicas.length; i++) {
+                sufixo += this.caracteristicas[i];
+            }
+            var velhoObjetoDeEstudo = document.getElementById("imagem1");
+            velhoObjetoDeEstudo.className = classeAntiga;
+            var novoObjetoDeEstudo = document.getElementById("imagem2");
+            novoObjetoDeEstudo.className = sufixo;
+            novoObjetoDeEstudo.style.position = "relative";
+            novoObjetoDeEstudo.style.left = "-982px";
+            this.fadeOut(velhoObjetoDeEstudo, 1);
+            this.fadeIn(novoObjetoDeEstudo, 1);
+            this.botaoDeTipografiaAtivo = [0, 0, 0, 1];
+            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
+                if (this.botaoDeTipografiaAtivo[i] !== 1) {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                }
+                else {
+                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                }
+            }
+        }
+    };
+    // José Carlos mimimamedezim
+    HistoriadorPage.prototype.desapareceBalao = function () {
+        console.log('antes do clique: ' + this.bonecoAcordado);
+        this.bonecoAcordado = !this.bonecoAcordado;
+        console.log('após o clique: ' + this.bonecoAcordado);
+        if (!this.bonecoAcordado) {
+            var jose = document.getElementById('jose');
+            jose.className = "jose dormindo";
+            var opacidade = document.getElementById("balaoDeDialogo").style.opacity;
+            if (opacidade != "1" && opacidade != "") {
+                document.getElementById("balaoDeDialogo").style.opacity = "1";
+            }
+            else {
+                document.getElementById("balaoDeDialogo").style.opacity = "0";
+            }
+        }
+        else {
+            var jose = document.getElementById('jose');
+            jose.className = "jose explicando";
+        }
+    };
+    HistoriadorPage.prototype.geraModoAleatorio = function () {
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "Hmmm, você gostou desta combinação de cores? Quais escolas você consegue consegue identificar?";
+        }
+        var escolas = ["D", "Nv", "B", "P", "N"];
+        var escolaEscolhida;
+        for (var i = 0; i < 3; i++) {
+            escolaEscolhida = Math.floor(Math.random() * 5);
+            this.caracteristicas[i] = escolas[escolaEscolhida];
+        }
+        var objetoDeEstudo = document.getElementById('objetoDeEstudo');
+        var sufixo = "";
+        for (var i = 0; i < this.caracteristicas.length; i++) {
+            sufixo += this.caracteristicas[i];
+        }
+        objetoDeEstudo.className = "objetoDeEstudo flex-container" + " " + sufixo;
     };
     HistoriadorPage.prototype.fadeIn = function (element, time) {
         this.processa(element, time, 0, 100);
@@ -515,451 +1052,19 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }, time * 50);
     };
-    HistoriadorPage.prototype.aplicaLayoutArtDeco = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "O layout reforça as fortes linhas verticais, os seus ornamentos e as formas aerodinâmicas da Art Deco, que refletiam os arranha-céus, carros, arte, móveis, jóias, moda e até a música da época.";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-layout-1").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[0] = "D";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeLayoutAtivo = [1, 0, 0, 0];
-            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
-                if (this.botaoDeLayoutAtivo[i] !== 1) {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
+    HistoriadorPage.prototype.girarPersonagem = function (personagem) {
+        if (this.bonecoAcordado) {
+            var degrees = 0;
+            personagem.onclick = function () {
+                degrees += 1800;
+                personagem.style.webkitTransform = "rotateY(" + degrees + "deg) scale(0.3)";
+                personagem.style.transform = "rotateY(" + degrees + "deg) scale(0.3)";
+            };
         }
-    };
-    HistoriadorPage.prototype.aplicaCorArtDeco = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "Cores como prata, ouro, azul metálico e cinzas de carvão também representavam a riqueza e a prosperidade da década de 20. Acabamentos metálicos adicionam brilho, glamour e implicam em luxo e riqueza.";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-cor-1").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[1] = "D";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeCorAtivo = [1, 0, 0, 0];
-            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
-                if (this.botaoDeCorAtivo[i] !== 1) {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaFonteArtDeco = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "A estética da tipografia Art Déco refletia grande parte das transições culturais entre as décadas de 1920 e 1940, quando máquinas, metais e trens de carga começaram a mudar o mundo. As tipografias sem serifa e geométricas são refinadas e elegantes, com maior contraste e junções abruptas.";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-tipografia-1").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[2] = "D";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeTipografiaAtivo = [1, 0, 0, 0];
-            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
-                if (this.botaoDeTipografiaAtivo[i] !== 1) {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    // -------------- ART NOVEAU --------------
-    HistoriadorPage.prototype.exibeDialogoArtNoveau = function () {
-        var jose = document.getElementById('jose');
-        jose.className = "jose confuso";
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "Art Nouveau foi um estilo internacional que prosperou no fim do século XIX e começo do século XX. Englobou todas as artes projetuais – arquitetura, design de mobiliário e produto, moda e artes gráficas. Uso da linha orgânica, baseada na natureza. Movimentos lineares naturais dominavam a área espacial e outras propriedades visuais.";
-    };
-    HistoriadorPage.prototype.aplicaLayoutArtNoveau = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.innerHTML = "            ";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-layout-2").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[0] = "Nv";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeLayoutAtivo = [0, 1, 0, 0];
-            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
-                if (this.botaoDeLayoutAtivo[i] !== 1) {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaCorArtNoveau = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "O Art Nouveau concentra-se fortemente em cores quentes e dessaturadas, dando um ar de desbotado, empoeirado. Quando se adiciona cores quentes, por conta da falta de saturação, obtém-se um efeito romântico, nostálgico, sonhador.";
-        // Linha abaixo não permite que usuário clique em botão já clicado
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-cor-2").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[1] = "Nv";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeCorAtivo = [0, 1, 0, 0];
-            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
-                if (this.botaoDeCorAtivo[i] !== 1) {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaFonteArtNoveau = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "A tipologia Art Nouveau é estilizada, elegante e com fontes extremamente decorativas, derivadas de formas orgânicas. Incluem acabamentos decorativos, “cinturas” altas ou baixas, formas triangulares e diagonais dos caracteres, ênfase nas partes superior ou inferior e linhas transversais angulosas";
-        // Linha abaixo não permite que usuário clique em botão já clicado
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-tipografia-2").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[2] = "Nv";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeTipografiaAtivo = [0, 1, 0, 0];
-            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
-                if (this.botaoDeTipografiaAtivo[i] !== 1) {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    // -------------- BAUHAUS --------------
-    HistoriadorPage.prototype.exibeDialogoBauhaus = function () {
-        var jose = document.getElementById('jose');
-        jose.className = "jose surpreso";
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "Bauhaus foi a primeira escola de Design do mundo. Ela surgiu na Alemanha e é uma das maiores expressões do Modernismo. Características como um leque reduzido de cores, uso de formas geométricas claras e simples e construção da informação visual dentro de um sistema rígido (grid) foram aplicadas a problemas funcionais e à produção mecânica dentro da escola.";
-    };
-    HistoriadorPage.prototype.aplicaLayoutBauhaus = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "No layout as formas primárias geométricas definem-se como elementos dinâmicos, bordas que são ultrapassadas e linhas firmes.";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-layout-3").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[0] = "B";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeLayoutAtivo = [0, 0, 1, 0];
-            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
-                if (this.botaoDeLayoutAtivo[i] !== 1) {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaCorBauhaus = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "Forte uso das cores primárias e vibrantes eram tomadas como ponto de partida para qualquer produção. As cores também eram representadas pelas formas primárias (vermelho = quadrado, triângulo = amarelo, azul = circulo).";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-cor-3").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[1] = "B";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeCorAtivo = [0, 0, 1, 0];
-            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
-                if (this.botaoDeCorAtivo[i] !== 1) {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaFonteBauhaus = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "A Bauhaus utiliza de uma tipografia mais moderna, enxuta e precisa, com princípios do construtivismo. Mistura versões condensadas e expandidas de fontes góticas e sem serifa.";
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-tipografia-3").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[2] = "B";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeTipografiaAtivo = [0, 0, 1, 0];
-            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
-                if (this.botaoDeTipografiaAtivo[i] !== 1) {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    // -------------- POP ART --------------
-    HistoriadorPage.prototype.exibeDialogoPopArt = function () {
-        var jose = document.getElementById('jose');
-        jose.className = "jose explicando";
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "O Pop Art surge em meados de 1950, na Inglaterra, mas alcança sua maior fama nos Estados Unidos em 1960. O movimento buscava unir a familiaridade da sociedade com a cultura de consumo e de massa. O resultado eram imagens que documentavam, ao mesmo tempo que parodiavam, conceitos familiares dos Estados Unidos modernos.";
-    };
-    HistoriadorPage.prototype.aplicaLayoutPopArt = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "O layout traz a estética dos quadrinhos que o artista Roy Lichtenstein usava como uma forma de criticar a cultura de massas, o consumismo e a economia doméstica.";
-        // Linha abaixo não permite que usuário clique em botão já clicado
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-layout-4").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[0] = "P";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeLayoutAtivo = [0, 0, 0, 1];
-            for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
-                if (this.botaoDeLayoutAtivo[i] !== 1) {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaCorPopArt = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "O design pop inspirava-se nas cores do arco íris: saturadas e contrastantes. Tons vibrantes para criar deliberadamente efeitos ópticos dissonantes.";
-        // Linha abaixo não permite que usuário clique em botão já clicado
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-cor-4").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[1] = "P";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeCorAtivo = [0, 0, 0, 1];
-            for (var i = 0; i < this.botaoDeCorAtivo.length; i++) {
-                if (this.botaoDeCorAtivo[i] !== 1) {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-cor-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    HistoriadorPage.prototype.aplicaFontePopArt = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "A tipografia Pop Art geralmente eram manuscritos, posteriormente com referências ao Art Nouveau, até mesmo psicodélicos. Chamativa, principalmente ligada ao consumismo e à venda exagerada.";
-        // Linha abaixo não permite que usuário ifclique em botão já clicado(document.getElementById("escola-tipografia-4").style.opacity!=1)
-        // Linha abaixo só permite clicar quando não já está clicado
-        if (document.getElementById("escola-tipografia-4").style.opacity != "1") {
-            var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
-            this.caracteristicas[2] = "P";
-            var sufixo = "";
-            for (var i = 0; i < this.caracteristicas.length; i++) {
-                sufixo += this.caracteristicas[i];
-            }
-            var velhoObjetoDeEstudo = document.getElementById("imagem1");
-            velhoObjetoDeEstudo.className = classeAntiga;
-            var novoObjetoDeEstudo = document.getElementById("imagem2");
-            novoObjetoDeEstudo.className = sufixo;
-            novoObjetoDeEstudo.style.position = "relative";
-            novoObjetoDeEstudo.style.left = "-982px";
-            this.fadeOut(velhoObjetoDeEstudo, 1);
-            this.fadeIn(novoObjetoDeEstudo, 1);
-            this.botaoDeTipografiaAtivo = [0, 0, 0, 1];
-            for (var i = 0; i < this.botaoDeTipografiaAtivo.length; i++) {
-                if (this.botaoDeTipografiaAtivo[i] !== 1) {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
-                }
-                else {
-                    document.getElementById('escola-tipografia-' + (i + 1)).setAttribute("style", "opacity: 1;");
-                }
-            }
-        }
-    };
-    // José Carlos mimimamedezim
-    HistoriadorPage.prototype.desapareceBalao = function () {
-        var opacidade = document.getElementById("balaoDeDialogo").style.opacity;
-        if (opacidade != "1" && opacidade != "") {
-            document.getElementById("balaoDeDialogo").style.opacity = "1";
-        }
-        else {
-            document.getElementById("balaoDeDialogo").style.opacity = "0";
-        }
-    };
-    HistoriadorPage.prototype.geraModoAleatorio = function () {
-        var balaoDeDialogo = document.getElementById('balaoDeDialogo');
-        balaoDeDialogo.style.opacity = "1";
-        balaoDeDialogo.innerHTML =
-            "Hmmm, você gostou desta combinação de cores? Quais escolas você consegue consegue identificar?";
-        var escolas = ["D", "Nv", "B", "P", "N"];
-        var escolaEscolhida;
-        for (var i = 0; i < 3; i++) {
-            escolaEscolhida = Math.floor(Math.random() * 5);
-            this.caracteristicas[i] = escolas[escolaEscolhida];
-        }
-        var objetoDeEstudo = document.getElementById('objetoDeEstudo');
-        var sufixo = "";
-        for (var i = 0; i < this.caracteristicas.length; i++) {
-            sufixo += this.caracteristicas[i];
-        }
-        objetoDeEstudo.className = "objetoDeEstudo flex-container" + " " + sufixo;
     };
     HistoriadorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-historiador',template:/*ion-inline-start:"D:\smdesign\src\pages\historiador\historiador.html"*/'<ion-content padding>\n\n  \n\n  <!-- Teste de mouseFlow quando subir para site -->\n\n  <!--\n\n  <script type="text/javascript">\n\n    window._mfq = window._mfq || [];\n\n    (function () {\n\n      var mf = document.createElement("script");\n\n      mf.type = "text/javascript"; mf.async = true;\n\n      mf.src = "//cdn.mouseflow.com/projects/a66f8894-535d-47b9-9065-806d3b2faac8.js";\n\n      document.getElementsByTagName("head")[0].appendChild(mf);\n\n    })();\n\n  </script>\n\n  -->\n\n\n\n  <div class="botao-voltar-div">\n\n    <button (click)="voltarPaginaInicial()" style="background: transparent;">\n\n      <ion-icon class="botaoVoltar"></ion-icon>\n\n    </button>\n\n  </div>\n\n\n\n  <ion-grid id="gridMaior">\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <ion-grid id="gridDeBotoes">\n\n          <ion-row id="linha01">\n\n            <ion-col id="celulaBotaoArtDeco">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artDeco (click)="exibeDialogoArtDeco()" class="sombraEscolas">\n\n                    <ion-icon class="botaoArtDeco">Art Deco</ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtDeco()" id="escola-cor-1">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtDeco()" id="escola-tipografia-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtDeco()" id="escola-layout-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha02">\n\n            <ion-col id="celulaBotaoArtNoveau">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artNoveau (click)="exibeDialogoArtNoveau()"\n\n                    class="sombraEscolas">\n\n                    <ion-icon class="botaoArtNoveau"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtNoveau()" id="escola-cor-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtNoveau()" id="escola-tipografia-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtNoveau()" id="escola-layout-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha03">\n\n            <ion-col id="celulaBotaoBauhaus">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active bauhaus (click)="exibeDialogoBauhaus()" class="sombraEscolas">\n\n                    <ion-icon class="botaoBauhaus"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorBauhaus()" id="escola-cor-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteBauhaus()" id="escola-tipografia-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutBauhaus()" id="escola-layout-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha04">\n\n            <ion-col id="celulaBotaoPopArt">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active popArt (click)="exibeDialogoPopArt()" class="sombraEscolas">\n\n                    <ion-icon class="botaoPopArt"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorPopArt()" id="escola-cor-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFontePopArt()" id="escola-tipografia-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutPopArt()" id="escola-layout-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!--\n\n          <ion-row id="linha05">\n\n            <div style="margin-top: 45px; border: none;">\n\n              <ion-col id="celulaBotaoReiniciar">\n\n                <div class="tooltip">\n\n                  <button (click)="carregaLayoutNormal()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Reiniciar</span>\n\n                </div>\n\n              </ion-col>\n\n              <ion-col id="celulaBotaoAleatorio">\n\n                <div class="tooltip">\n\n                  <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Modo Aleatório</span>\n\n                </div>\n\n              </ion-col>\n\n              <ion-col id="celulaBotaoGaleria">\n\n                <div class="tooltip">\n\n                  <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Galeria</span>\n\n                </div>\n\n              </ion-col>\n\n            </div>\n\n          </ion-row>\n\n        -->\n\n        </ion-grid>\n\n      </ion-col>\n\n      <ion-col col-11>\n\n        <ion-grid id="gridDeEstudo">\n\n          <ion-row id="linha01">\n\n            <ion-col>\n\n              <div id="objetoDeEstudo" class="objetoDeEstudo flex-container " onload="carregaLayoutNormal()">\n\n                <img id = "imagem1" class = "NNN">\n\n                <img id = "imagem2" class = "NNN" style = "opacity: 0;" >\n\n              </div>\n\n              <div id="divJose">\n\n                <div id="balaoDeDialogo" class="balaoDeDialogo shadow"></div>\n\n                <div id="jose" class="jose explicando" (click)="desapareceBalao()"></div>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div class = "divBotoesInferiores">\n\n        <ion-col id="celulaBotaoReiniciar">\n\n          <div class="tooltip">\n\n            <button (click)="carregaLayoutNormal()" style="background-color: transparent;">\n\n              <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Reiniciar</span>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col id="celulaBotaoAleatorio">\n\n          <div class="tooltip">\n\n            <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n              <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Modo Aleatório</span>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col id="celulaBotaoGaleria">\n\n          <div class="tooltip">\n\n            <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n              <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Galeria</span>\n\n          </div>\n\n        </ion-col>\n\n      </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\historiador\historiador.html"*/
+            selector: 'page-historiador',template:/*ion-inline-start:"D:\smdesign\src\pages\historiador\historiador.html"*/'<ion-content padding>\n\n  \n\n  <!-- Teste de mouseFlow quando subir para site -->\n\n  <!--\n\n  <script type="text/javascript">\n\n    window._mfq = window._mfq || [];\n\n    (function () {\n\n      var mf = document.createElement("script");\n\n      mf.type = "text/javascript"; mf.async = true;\n\n      mf.src = "//cdn.mouseflow.com/projects/a66f8894-535d-47b9-9065-806d3b2faac8.js";\n\n      document.getElementsByTagName("head")[0].appendChild(mf);\n\n    })();\n\n  </script>\n\n  -->\n\n\n\n  <div class="botao-voltar-div">\n\n    <button (click)="voltarPaginaInicial()" style="background: transparent;">\n\n      <ion-icon class="botaoVoltar"></ion-icon>\n\n    </button>\n\n  </div>\n\n\n\n  <ion-grid id="gridMaior">\n\n    <ion-row>\n\n      <ion-col col-1>\n\n        <ion-grid id="gridDeBotoes">\n\n          <ion-row id="linha01">\n\n            <ion-col id="celulaBotaoArtDeco">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artDeco (click)="exibeDialogoArtDeco()" class="sombraEscolas">\n\n                    <ion-icon class="botaoArtDeco">Art Deco</ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtDeco()" id="escola-cor-1">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtDeco()" id="escola-tipografia-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtDeco()" id="escola-layout-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha02">\n\n            <ion-col id="celulaBotaoArtNoveau">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artNoveau (click)="exibeDialogoArtNoveau()"\n\n                    class="sombraEscolas">\n\n                    <ion-icon class="botaoArtNoveau"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtNoveau()" id="escola-cor-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtNoveau()" id="escola-tipografia-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtNoveau()" id="escola-layout-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha03">\n\n            <ion-col id="celulaBotaoBauhaus">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active bauhaus (click)="exibeDialogoBauhaus()" class="sombraEscolas">\n\n                    <ion-icon class="botaoBauhaus"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorBauhaus()" id="escola-cor-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteBauhaus()" id="escola-tipografia-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutBauhaus()" id="escola-layout-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha04">\n\n            <ion-col id="celulaBotaoPopArt">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active popArt (click)="exibeDialogoPopArt()" class="sombraEscolas">\n\n                    <ion-icon class="botaoPopArt"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorPopArt()" id="escola-cor-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFontePopArt()" id="escola-tipografia-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutPopArt()" id="escola-layout-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n          <!--\n\n          <ion-row id="linha05">\n\n            <div style="margin-top: 45px; border: none;">\n\n              <ion-col id="celulaBotaoReiniciar">\n\n                <div class="tooltip">\n\n                  <button (click)="carregaLayoutNormal()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Reiniciar</span>\n\n                </div>\n\n              </ion-col>\n\n              <ion-col id="celulaBotaoAleatorio">\n\n                <div class="tooltip">\n\n                  <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Modo Aleatório</span>\n\n                </div>\n\n              </ion-col>\n\n              <ion-col id="celulaBotaoGaleria">\n\n                <div class="tooltip">\n\n                  <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Galeria</span>\n\n                </div>\n\n              </ion-col>\n\n            </div>\n\n          </ion-row>\n\n        -->\n\n        </ion-grid>\n\n      </ion-col>\n\n      <ion-col col-11>\n\n        <ion-grid id="gridDeEstudo">\n\n          <ion-row id="linha01">\n\n            <ion-col>\n\n              <div id="objetoDeEstudo" class="objetoDeEstudo flex-container " onload="carregaLayoutNormal()">\n\n                <img id = "imagem1" class = "NNN">\n\n                <img id = "imagem2" class = "NNN" style = "opacity: 0;" >\n\n              </div>\n\n              <div id="divJose">\n\n                <div id="balaoDeDialogo" class="balaoDeDialogo shadow">\n\n                  <span id="text"></span>\n\n                  <span id="blinker">|</span>\n\n                </div>\n\n                <div id="jose" class="jose explicando" (click)="desapareceBalao()"></div>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div class = "divBotoesInferiores">\n\n        <ion-col id="celulaBotaoReiniciar">\n\n          <div class="tooltip">\n\n            <button (click)="carregaLayoutNormal()" style="background-color: transparent;">\n\n              <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Reiniciar</span>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col id="celulaBotaoAleatorio">\n\n          <div class="tooltip">\n\n            <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n              <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Modo Aleatório</span>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col id="celulaBotaoGaleria">\n\n          <div class="tooltip">\n\n            <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n              <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Galeria</span>\n\n          </div>\n\n        </ion-col>\n\n      </div>\n\n\n\n\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\historiador\historiador.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["e" /* NavController */]])
     ], HistoriadorPage);
