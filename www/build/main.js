@@ -515,10 +515,19 @@ var HistoriadorPage = /** @class */ (function () {
             this.botaoDeLayoutAtivo = [1, 0, 0, 0];
             for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
                 if (this.botaoDeLayoutAtivo[i] !== 1) {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 0.5;");
+                    // document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "scale(0.85);");
+                    var botoes = document.getElementsByClassName('botaoLayout');
+                    console.log(botoes);
+                    for (var j = 0; j < botoes.length; j++) {
+                        botoes[j].setAttribute("style", "scale(0.85);");
+                    }
                 }
                 else {
-                    document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "opacity: 1;");
+                    //document.getElementById('escola-layout-' + (i + 1)).setAttribute("style", "scale(1);");
+                    var botoes = document.getElementsByClassName('botaoLayout');
+                    for (var j = 0; j < botoes.length; j++) {
+                        botoes[j].setAttribute("style", "scale(1);");
+                    }
                 }
             }
         }

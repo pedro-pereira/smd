@@ -25804,7 +25804,7 @@ page-historiador .fab[mini] {
 }
 
 page-historiador .fab-md-in-list {
-  background-color: #f5e6e3;
+  background-color: #F5F3E9;
 }
 
 page-historiador .botaoPaletaCores {
@@ -26023,20 +26023,23 @@ page-historiador #divJose {
 }
 
 page-historiador .jose {
-  display: block;
   position: relative;
   -webkit-transform: scale(0.3);
   transform: scale(0.3);
   content: url("/assets/imgs/personagem/jose-explicando.png");
   cursor: pointer;
-  background-color: transparent;
-  color: transparent;
-  -webkit-box-shadow: 12px 9px 60px 40px #4242428f;
-  box-shadow: 12px 9px 60px 40px #4242428f;
   border-radius: 100%;
   -webkit-transition: 2s linear;
-  bottom: 260%;
-  right: -70%;
+  bottom: 307%;
+  right: -65%;
+  /*
+    display: block;
+    background-color: transparent;
+    color: transparent;
+    box-shadow:  12px 9px 60px 40px #4242428f;
+    bottom: 260%;
+    right: -70%;
+    */
 }
 
 page-historiador .explicando {
