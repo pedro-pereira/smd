@@ -454,7 +454,6 @@ var HistoriadorPage = /** @class */ (function () {
     }
     HistoriadorPage.prototype.ionViewDidLoad = function () {
         this.carregaLayoutNormal();
-        document.getElementById("balaoDeDialogo").style.opacity = "0";
     };
     HistoriadorPage.prototype.voltarPaginaInicial = function () {
         this.navCtrl.push(this.homePage);
@@ -474,7 +473,12 @@ var HistoriadorPage = /** @class */ (function () {
         }
         objetoDeEstudo.className = sufixo;
         novoObjetoDeEstudo.className = sufixo;
-        document.getElementById("balaoDeDialogo").style.opacity = "0";
+        if (this.bonecoAcordado) {
+            var balaoDeDialogo = document.getElementById('balaoDeDialogo');
+            balaoDeDialogo.style.opacity = "1";
+            balaoDeDialogo.innerHTML =
+                "Olá! Eu sou José. Estou aqui para te ajudar a entender melhor as mudanças que ocorrerão na tela conforme você for alterando a tipografia, a cor ou o layout. Vamos lá?";
+        }
     };
     // -------------- ART DECO --------------
     HistoriadorPage.prototype.exibeDialogoArtDeco = function () {
