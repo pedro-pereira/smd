@@ -26029,17 +26029,8 @@ page-historiador .jose {
   content: url("/assets/imgs/personagem/jose-explicando.png");
   cursor: pointer;
   border-radius: 100%;
-  -webkit-transition: 2s linear;
   bottom: 307%;
   right: -65%;
-  /*
-    display: block;
-    background-color: transparent;
-    color: transparent;
-    box-shadow:  12px 9px 60px 40px #4242428f;
-    bottom: 260%;
-    right: -70%;
-    */
 }
 
 page-historiador .explicando {
@@ -26063,18 +26054,6 @@ page-historiador .dormindo {
 }
 
 page-historiador .balaoDeDialogo {
-  /*
-    width: 75%;
-    height: 100%;
-    margin: 50px auto;
-    margin-top: 10px;
-    border-radius: 5px;
-    background: #3D5971;
-    color: #fff;
-    font-family: 'High Tower Text';
-    font-size: 14pt;
-    position: relative;
-    */
   width: 90%;
   height: 100%;
   margin-top: 10px;
@@ -26104,11 +26083,6 @@ page-historiador .balaoDeDialogo:before {
 }
 
 page-historiador .shadow {
-  /*
-    -moz-box-shadow:    3px 3px 5px 6px black;
-    -webkit-box-shadow: 3px 3px 5px 6px black;
-    box-shadow:         3px 3px 5px 6px black;
-    */
   -webkit-box-shadow: 12px 9px 20px 20px #4242428f;
   box-shadow: 12px 9px 20px 20px #4242428f;
 }
@@ -26611,24 +26585,6 @@ page-historiador .PPB {
 
 page-historiador .PPP {
   content: url("/assets/imgs/combinacoes/pop-art/PPP.png");
-}
-
-page-historiador .alert-wrapper {
-  background-color: #F5F3E9;
-}
-
-page-historiador .alert-md .alert-title {
-  font-family: 'Champagne e Limousines';
-  font-size: 16px;
-}
-
-page-historiador .alert-md .alert-message {
-  font-family: 'Champagne e Limousines';
-  font-size: 16px;
-}
-
-page-historiador .alert-button alert-button-md alert-button-default alert-button-default-md {
-  background: url("/assets/imgs/personagem/jose-feliz.png") no-repeat;
 }
 
 page-home .content-md {
