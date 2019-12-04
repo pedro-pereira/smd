@@ -24,39 +24,25 @@ var GaleriaPage = /** @class */ (function () {
     function GaleriaPage(navCtrl) {
         this.navCtrl = navCtrl;
         this.historiadorPage = __WEBPACK_IMPORTED_MODULE_2__historiador_historiador__["a" /* HistoriadorPage */];
+        // Variável que armazena as referências das imagens da galeria
         this.slides = [
-            {
-                image: "assets/imgs/galeria/galeria-1.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-2.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-3.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-4.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-5.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-6.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-7.png"
-            },
-            {
-                image: "assets/imgs/galeria/galeria-8.png"
-            }
+            { image: "assets/imgs/galeria/galeria-1.png" },
+            { image: "assets/imgs/galeria/galeria-2.png" },
+            { image: "assets/imgs/galeria/galeria-3.png" },
+            { image: "assets/imgs/galeria/galeria-4.png" },
+            { image: "assets/imgs/galeria/galeria-5.png" },
+            { image: "assets/imgs/galeria/galeria-6.png" },
+            { image: "assets/imgs/galeria/galeria-7.png" },
+            { image: "assets/imgs/galeria/galeria-8.png" }
         ];
     }
+    // Função para voltar para a tela de "estudo" do infográfico
     GaleriaPage.prototype.voltarPaginaHistoriador = function () {
         this.navCtrl.setRoot(this.historiadorPage);
     };
     GaleriaPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-galeria',template:/*ion-inline-start:"D:\smdesign\src\pages\galeria\galeria.html"*/'<ion-content>\n\n\n\n  <ion-grid>\n\n    <ion-row>\n\n\n\n      <ion-col col-1>\n\n        <div>\n\n          <button (click)="voltarPaginaHistoriador()" style="background: transparent;">\n\n            <ion-icon class="botaoVoltar"></ion-icon>\n\n          </button>\n\n          <span class="titulo-galeria">Galeria</span>\n\n        </div>\n\n      </ion-col>\n\n\n\n      <ion-col col-11>\n\n        <ion-slides pager>\n\n          <ion-slide *ngFor="let slide of slides">\n\n            <img [src]="slide.image" class="slide-image" />\n\n          </ion-slide>\n\n        </ion-slides>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\galeria\galeria.html"*/
+            selector: 'page-galeria',template:/*ion-inline-start:"D:\smdesign\src\pages\galeria\galeria.html"*/'<ion-content>\n\n  <ion-grid>\n\n    <ion-row>\n\n\n\n      <ion-col col-1>\n\n        <div>\n\n          <button (click)="voltarPaginaHistoriador()" style="background: transparent;">\n\n            <ion-icon class="botaoVoltar"></ion-icon>\n\n          </button>\n\n          <span class="titulo-galeria">Galeria</span>\n\n        </div>\n\n      </ion-col>\n\n\n\n      <ion-col col-11>\n\n        <ion-slides pager>\n\n          <ion-slide *ngFor="let slide of slides">\n\n            <img [src]="slide.image" class="slide-image" />\n\n          </ion-slide>\n\n        </ion-slides>\n\n      </ion-col>\n\n\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\galeria\galeria.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
     ], GaleriaPage);
@@ -92,12 +78,13 @@ var CreditosPage = /** @class */ (function () {
         this.navCtrl = navCtrl;
         this.homePage = __WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */];
     }
+    // Função para voltar para a tela inicial do infográfico
     CreditosPage.prototype.voltarPaginaInicial = function () {
         this.navCtrl.push(this.homePage);
     };
     CreditosPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-creditos',template:/*ion-inline-start:"D:\smdesign\src\pages\creditos\creditos.html"*/'<!--\n\n<ion-header>\n\n  <ion-navbar>\n\n    <button ion-button menuToggle>\n\n      <ion-icon name="menu"></ion-icon>\n\n    </button>\n\n    <ion-title>(LOGO) Saiba Mais Design</ion-title>\n\n  </ion-navbar>\n\n</ion-header>\n\n-->\n\n<ion-content>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n\n\n        <div id="botao-voltar">\n\n          <button (click)="voltarPaginaInicial()" style="background-color:transparent;">\n\n            <ion-icon class="botaoVoltar"></ion-icon>\n\n          </button>\n\n        </div>\n\n\n\n        <div class="titulo"></div>\n\n        <div class="texto"></div>\n\n\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\creditos\creditos.html"*/
+            selector: 'page-creditos',template:/*ion-inline-start:"D:\smdesign\src\pages\creditos\creditos.html"*/'<ion-content>\n\n  <ion-grid>\n\n    <ion-row>\n\n      <ion-col col-12>\n\n\n\n        <div id="botao-voltar">\n\n          <button (click)="voltarPaginaInicial()" style="background-color:transparent;">\n\n            <ion-icon class="botaoVoltar"></ion-icon>\n\n          </button>\n\n        </div>\n\n\n\n        <div class="titulo"></div>\n\n        <div class="texto"></div>\n\n\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\creditos\creditos.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */]])
     ], CreditosPage);
@@ -444,12 +431,31 @@ var HistoriadorPage = /** @class */ (function () {
         this.homePage = __WEBPACK_IMPORTED_MODULE_2__home_home__["a" /* HomePage */];
         this.galeriaPage = __WEBPACK_IMPORTED_MODULE_3__galeria_galeria__["a" /* GaleriaPage */];
         this.caracteristicas = ["N", "N", "N"];
+        // Vetor que indica qual botão de cor de qual escola está selecionado
         this.botaoDeCorAtivo = [1, 1, 1, 1];
+        // Vetor que indica qual botão de tipografia de qual escola está selecionado
         this.botaoDeTipografiaAtivo = [1, 1, 1, 1];
+        // Vetor que indica qual botão de layout de qual escola está selecionado
         this.botaoDeLayoutAtivo = [1, 1, 1, 1];
+        // Indica se o personagem está habilitado ou não
         this.bonecoAcordado = true;
+        // Indica se é o primeiro clique em qualquer um dos botões
         this.primeiroClique = true;
     }
+    HistoriadorPage.prototype.ionViewDidLoad = function () {
+        this.carregaLayoutNormal();
+    };
+    HistoriadorPage.prototype.voltarPaginaInicial = function () {
+        this.navCtrl.setRoot(this.homePage);
+    };
+    HistoriadorPage.prototype.abrirGaleria = function () {
+        this.navCtrl.setRoot(this.galeriaPage);
+    };
+    /* Função que exibe os botões de cor, tipo e layout
+       com opacidade total (selecionado) ou opacidade parcial (não-selecionado).
+       Se o parâmetro for true, todo os botões aparecerão selecionados;
+       Se for false, todos os botões aparecerão não-selecionado.
+    */
     HistoriadorPage.prototype.selecionaTodosOsBotoes = function (comando) {
         if (comando) {
             for (var i = 0; i < this.botaoDeLayoutAtivo.length; i++) {
@@ -474,19 +480,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
-    HistoriadorPage.prototype.ionViewDidLoad = function () {
-        this.carregaLayoutNormal();
-        // document.getElementById("balaoDeDialogo").style.opacity = "0";
-        // this.desselecionaBotoes();
-    };
-    HistoriadorPage.prototype.voltarPaginaInicial = function () {
-        this.navCtrl.setRoot(this.homePage);
-    };
-    HistoriadorPage.prototype.abrirGaleria = function () {
-        this.navCtrl.setRoot(this.galeriaPage);
-    };
     HistoriadorPage.prototype.carregaLayoutNormal = function () {
-        // this.desselecionaBotoes();
         this.caracteristicas[0] = "N";
         this.caracteristicas[1] = "N";
         this.caracteristicas[2] = "N";
@@ -506,6 +500,7 @@ var HistoriadorPage = /** @class */ (function () {
         }
     };
     // -------------- ART DECO --------------
+    // Função para exibir mensagem ao clicar no botão "Art Deco"
     HistoriadorPage.prototype.exibeDialogoArtDeco = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -519,6 +514,7 @@ var HistoriadorPage = /** @class */ (function () {
             balaoDeDialogo.style.opacity = "0";
         }
     };
+    // Função que aplica as características de layout da escola "Art Deco"
     HistoriadorPage.prototype.aplicaLayoutArtDeco = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -533,7 +529,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-layout-1").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[0] = "D";
@@ -560,6 +555,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de cor da escola "Art Deco"
     HistoriadorPage.prototype.aplicaCorArtDeco = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -574,7 +570,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-cor-1").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[1] = "D";
@@ -601,6 +596,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de tipografia da escola "Art Deco"
     HistoriadorPage.prototype.aplicaFonteArtDeco = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -615,7 +611,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-tipografia-1").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[2] = "D";
@@ -656,6 +651,7 @@ var HistoriadorPage = /** @class */ (function () {
             balaoDeDialogo.style.opacity = "0";
         }
     };
+    // Função que aplica as características de layout da escola "Art Noveau"
     HistoriadorPage.prototype.aplicaLayoutArtNoveau = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML = "O layout Art Nouveau caracteriza-se pelo uso de ornamentos florais, traçados curvilíneos com fortes contornos como numa moldura. As flores, os arcos, as formas da natureza trazem a ideia de movimento às obras.";
@@ -669,7 +665,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-layout-2").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[0] = "Nv";
@@ -696,6 +691,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de cor da escola "Art Noveau"
     HistoriadorPage.prototype.aplicaCorArtNoveau = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -710,7 +706,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo não permite que usuário clique em botão já clicado
         if (document.getElementById("escola-cor-2").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[1] = "Nv";
@@ -737,6 +732,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de tipografia da escola "Art Noveau"
     HistoriadorPage.prototype.aplicaFonteArtNoveau = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -751,7 +747,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-tipografia-2").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[2] = "Nv";
@@ -792,6 +787,7 @@ var HistoriadorPage = /** @class */ (function () {
             balaoDeDialogo.style.opacity = "0";
         }
     };
+    // Função que aplica as características de layout da escola "Bauhaus"
     HistoriadorPage.prototype.aplicaLayoutBauhaus = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -806,7 +802,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-layout-3").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[0] = "B";
@@ -833,6 +828,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de cor da escola "Bauhaus"
     HistoriadorPage.prototype.aplicaCorBauhaus = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -847,7 +843,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-cor-3").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[1] = "B";
@@ -874,6 +869,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de tipografia da escola "Bauhaus"
     HistoriadorPage.prototype.aplicaFonteBauhaus = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -888,7 +884,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-tipografia-3").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[2] = "B";
@@ -929,6 +924,7 @@ var HistoriadorPage = /** @class */ (function () {
             balaoDeDialogo.style.opacity = "0";
         }
     };
+    // Função que aplica as características de layout da escola "Pop Art"
     HistoriadorPage.prototype.aplicaLayoutPopArt = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -943,7 +939,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-layout-4").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[0] = "P";
@@ -970,6 +965,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de cor da escola "Pop Art"
     HistoriadorPage.prototype.aplicaCorPopArt = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -984,7 +980,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-cor-4").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[1] = "P";
@@ -1011,6 +1006,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características de tipografia da escola "Pop Art"
     HistoriadorPage.prototype.aplicaFontePopArt = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -1025,7 +1021,6 @@ var HistoriadorPage = /** @class */ (function () {
             this.primeiroClique = false;
             this.selecionaTodosOsBotoes(false);
         }
-        // Linha abaixo só permite clicar quando não já está clicado
         if (document.getElementById("escola-tipografia-4").style.opacity != "1") {
             var classeAntiga = this.caracteristicas[0] + this.caracteristicas[1] + this.caracteristicas[2];
             this.caracteristicas[2] = "P";
@@ -1052,7 +1047,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
-    // Personagem parceiro do discurso
+    //Função para habilitar/desabilitar o balão de diálogo do personagem.
     HistoriadorPage.prototype.desapareceBalao = function () {
         if (document.getElementById("balaoDeDialogo").innerHTML.trim() != "") {
             this.bonecoAcordado = !this.bonecoAcordado;
@@ -1080,6 +1075,7 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função que aplica as características aleatórias da escolas
     HistoriadorPage.prototype.geraModoAleatorio = function () {
         var balaoDeDialogo = document.getElementById('balaoDeDialogo');
         balaoDeDialogo.innerHTML =
@@ -1182,16 +1178,19 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }
     };
+    // Função para controlar a transição entre imagens (aparecendo)
     HistoriadorPage.prototype.fadeIn = function (element, time) {
         if (element.style.opacity == 0 || element.style.opacity == 1) {
             this.processa(element, time, 0, 100);
         }
     };
+    // Função para controlar a transição entre imagens (sumindo)
     HistoriadorPage.prototype.fadeOut = function (element, time) {
         if (element.style.opacity == 0 || element.style.opacity == 1) {
             this.processa(element, time, 100, 0);
         }
     };
+    // Função para executar a transição entre imagens
     HistoriadorPage.prototype.processa = function (element, time, initial, end) {
         var increment, opc, intervalo;
         if (initial == 0) {
@@ -1216,6 +1215,8 @@ var HistoriadorPage = /** @class */ (function () {
             }
         }, time * 50);
     };
+    // Função para recarregar as características orginais da tela
+    // Exibe uma mensagem de alerta antes de prosseguir o processo
     HistoriadorPage.prototype.recarregaAplicacao = function () {
         var _this = this;
         var confirm = this.alertCtrl.create({
@@ -1241,7 +1242,7 @@ var HistoriadorPage = /** @class */ (function () {
     };
     HistoriadorPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["m" /* Component */])({
-            selector: 'page-historiador',template:/*ion-inline-start:"D:\smdesign\src\pages\historiador\historiador.html"*/'<ion-content padding>\n\n\n\n  <!-- Teste de mouseFlow quando subir para site -->\n\n  <!--\n\n  <script type="text/javascript">\n\n    window._mfq = window._mfq || [];\n\n    (function () {\n\n      var mf = document.createElement("script");\n\n      mf.type = "text/javascript"; mf.async = true;\n\n      mf.src = "//cdn.mouseflow.com/projects/a66f8894-535d-47b9-9065-806d3b2faac8.js";\n\n      document.getElementsByTagName("head")[0].appendChild(mf);\n\n    })();\n\n  </script>\n\n  -->\n\n\n\n  <div class="botao-voltar-div">\n\n    <button (click)="voltarPaginaInicial()" style="background: transparent;">\n\n      <ion-icon class="botaoVoltar"></ion-icon>\n\n    </button>\n\n  </div>\n\n\n\n  <ion-grid id="gridMaior">\n\n    <ion-row>\n\n      <ion-col col-1 style="max-height: 80vh">\n\n        <ion-grid id="gridDeBotoes">\n\n          <ion-row id="linha01">\n\n            <ion-col id="celulaBotaoArtDeco">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artDeco (click)="exibeDialogoArtDeco()" class="sombraEscolas">\n\n                    <ion-icon class="botaoArtDeco">Art Deco</ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtDeco()" id="escola-cor-1">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtDeco()" id="escola-tipografia-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtDeco()" id="escola-layout-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha02">\n\n            <ion-col id="celulaBotaoArtNoveau">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artNoveau (click)="exibeDialogoArtNoveau()"\n\n                    class="sombraEscolas">\n\n                    <ion-icon class="botaoArtNoveau"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtNoveau()" id="escola-cor-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtNoveau()" id="escola-tipografia-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtNoveau()" id="escola-layout-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha03">\n\n            <ion-col id="celulaBotaoBauhaus">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active bauhaus (click)="exibeDialogoBauhaus()" class="sombraEscolas">\n\n                    <ion-icon class="botaoBauhaus"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorBauhaus()" id="escola-cor-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteBauhaus()" id="escola-tipografia-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutBauhaus()" id="escola-layout-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <ion-row id="linha04">\n\n            <ion-col id="celulaBotaoPopArt">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active popArt (click)="exibeDialogoPopArt()" class="sombraEscolas">\n\n                    <ion-icon class="botaoPopArt"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorPopArt()" id="escola-cor-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFontePopArt()" id="escola-tipografia-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutPopArt()" id="escola-layout-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n                </ion-fab>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <!--\n\n          <ion-row id="linha05">\n\n            <div style="margin-top: 45px; border: none;">\n\n              <ion-col id="celulaBotaoReiniciar">\n\n                <div class="tooltip">\n\n                  <button (click)="carregaLayoutNormal()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Reiniciar</span>\n\n                </div>\n\n              </ion-col>\n\n              <ion-col id="celulaBotaoAleatorio">\n\n                <div class="tooltip">\n\n                  <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Modo Aleatório</span>\n\n                </div>\n\n              </ion-col>\n\n              <ion-col id="celulaBotaoGaleria">\n\n                <div class="tooltip">\n\n                  <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n                    <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n                  </button>\n\n                  <span class="tooltiptext">Galeria</span>\n\n                </div>\n\n              </ion-col>\n\n            </div>\n\n          </ion-row>\n\n        -->\n\n        </ion-grid>\n\n      </ion-col>\n\n      <ion-col col-11>\n\n        <ion-grid id="gridDeEstudo">\n\n          <ion-row id="linha01">\n\n            <ion-col>\n\n              <div id="objetoDeEstudo" class="objetoDeEstudo flex-container " onload="carregaLayoutNormal()">\n\n                <img id = "imagem1" class = "NNN">\n\n                <img id = "imagem2" class = "NNN" style = "opacity: 0;" >\n\n              </div>\n\n              <div id="divJose">\n\n                <div id="balaoDeDialogo" class="balaoDeDialogo shadow"><p></p>\n\n                  <!--\n\n                  <span id="text"></span>\n\n                  <span id="blinker">|</span>\n\n                  -->\n\n                </div>\n\n                <div id="jose" class="jose explicando" (click)="desapareceBalao()"></div>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <div class = "divBotoesInferiores">\n\n        <ion-col id="celulaBotaoReiniciar">\n\n          <div class="tooltip">\n\n            <button (click)="recarregaAplicacao()" style="background-color: transparent;">\n\n              <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Reiniciar</span>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col id="celulaBotaoAleatorio">\n\n          <div class="tooltip">\n\n            <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n              <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Modo Aleatório</span>\n\n          </div>\n\n        </ion-col>\n\n        <ion-col id="celulaBotaoGaleria">\n\n          <div class="tooltip">\n\n            <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n              <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n            </button>\n\n            <span class="tooltiptext">Galeria</span>\n\n          </div>\n\n        </ion-col>\n\n      </div>\n\n\n\n\n\n</ion-content>\n\n'/*ion-inline-end:"D:\smdesign\src\pages\historiador\historiador.html"*/
+            selector: 'page-historiador',template:/*ion-inline-start:"D:\smdesign\src\pages\historiador\historiador.html"*/'<ion-content padding>\n\n\n\n  <div class="botao-voltar-div">\n\n    <button (click)="voltarPaginaInicial()" style="background: transparent;">\n\n      <ion-icon class="botaoVoltar"></ion-icon>\n\n    </button>\n\n  </div>\n\n\n\n  <ion-grid id="gridMaior">\n\n    <ion-row>\n\n      <ion-col col-1 style="max-height: 80vh">\n\n        <ion-grid id="gridDeBotoes">\n\n\n\n          <!-- Linha com o botão da escola "Art Deco" -->\n\n          <ion-row id="linha01">\n\n            <ion-col id="celulaBotaoArtDeco">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artDeco (click)="exibeDialogoArtDeco()" class="sombraEscolas">\n\n                    <ion-icon class="botaoArtDeco">Art Deco</ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtDeco()" id="escola-cor-1">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtDeco()" id="escola-tipografia-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtDeco()" id="escola-layout-1" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <!-- Linha com o botão da escola "Art Noveau" -->\n\n          <ion-row id="linha02">\n\n            <ion-col id="celulaBotaoArtNoveau">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active artNoveau (click)="exibeDialogoArtNoveau()"\n\n                    class="sombraEscolas">\n\n                    <ion-icon class="botaoArtNoveau"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorArtNoveau()" id="escola-cor-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteArtNoveau()" id="escola-tipografia-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutArtNoveau()" id="escola-layout-2" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <!-- Linha com o botão da escola "Bauhaus" -->\n\n          <ion-row id="linha03">\n\n            <ion-col id="celulaBotaoBauhaus">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active bauhaus (click)="exibeDialogoBauhaus()" class="sombraEscolas">\n\n                    <ion-icon class="botaoBauhaus"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorBauhaus()" id="escola-cor-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFonteBauhaus()" id="escola-tipografia-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutBauhaus()" id="escola-layout-3" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n              <br>\n\n              <br>\n\n              <br>\n\n            </ion-col>\n\n          </ion-row>\n\n\n\n          <!-- Linha com o botão da escola "Pop Art" -->\n\n          <ion-row id="linha04">\n\n            <ion-col id="celulaBotaoPopArt">\n\n              <div class="divComFab">\n\n                <ion-fab vertical="center" horizontal="center">\n\n\n\n                  <button ion-fab mini fab-close-active popArt (click)="exibeDialogoPopArt()" class="sombraEscolas">\n\n                    <ion-icon class="botaoPopArt"></ion-icon>\n\n                  </button>\n\n\n\n                  <ion-fab-list side="right" style="margin: -10px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaCorPopArt()" id="escola-cor-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoPaletaCores"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Paleta de cores</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 32px 70px 0px 110px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaFontePopArt()" id="escola-tipografia-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoTipografia"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Tipografia</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                  <ion-fab-list side="right" style="margin: 75px 10px 20px 90px">\n\n                    <div class="tooltip">\n\n                      <button ion-fab (click)="aplicaLayoutPopArt()" id="escola-layout-4" class="sombraEscolas">\n\n                        <ion-icon class="botaoLayout"></ion-icon>\n\n                      </button>\n\n                      <span class="tooltiptext">Layout</span>\n\n                    </div>\n\n                  </ion-fab-list>\n\n\n\n                </ion-fab>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </ion-col>\n\n\n\n      <!-- Espaço reservado para o tablet (objeto de estudo) -->\n\n      <ion-col col-11>\n\n        <ion-grid id="gridDeEstudo">\n\n          <ion-row id="linha01">\n\n            <ion-col>\n\n              <div id="objetoDeEstudo" class="objetoDeEstudo flex-container " onload="carregaLayoutNormal()">\n\n                <img id="imagem1" class="NNN">\n\n                <img id="imagem2" class="NNN" style="opacity: 0;">\n\n              </div>\n\n              <div id="divJose">\n\n                <div id="balaoDeDialogo" class="balaoDeDialogo shadow">\n\n                  <p></p>\n\n                </div>\n\n                <div id="jose" class="jose explicando" (click)="desapareceBalao()"></div>\n\n              </div>\n\n            </ion-col>\n\n          </ion-row>\n\n        </ion-grid>\n\n      </ion-col>\n\n    </ion-row>\n\n  </ion-grid>\n\n\n\n  <!-- Seção com os botões do "rodapé" -->\n\n  <div class="divBotoesInferiores">\n\n    <ion-col id="celulaBotaoReiniciar">\n\n      <div class="tooltip">\n\n        <button (click)="recarregaAplicacao()" style="background-color: transparent;">\n\n          <ion-icon class="botaoReiniciar botaoCelula"></ion-icon>\n\n        </button>\n\n        <span class="tooltiptext">Reiniciar</span>\n\n      </div>\n\n    </ion-col>\n\n    <ion-col id="celulaBotaoAleatorio">\n\n      <div class="tooltip">\n\n        <button (click)="geraModoAleatorio()" style="background-color: transparent;">\n\n          <ion-icon class="botaoAleatorio botaoCelula"></ion-icon>\n\n        </button>\n\n        <span class="tooltiptext">Modo Aleatório</span>\n\n      </div>\n\n    </ion-col>\n\n    <ion-col id="celulaBotaoGaleria">\n\n      <div class="tooltip">\n\n        <button (click)="abrirGaleria()" style="background-color: transparent;">\n\n          <ion-icon class="botaoGaleria botaoCelula"></ion-icon>\n\n        </button>\n\n        <span class="tooltiptext">Galeria</span>\n\n      </div>\n\n    </ion-col>\n\n  </div>\n\n\n\n</ion-content>'/*ion-inline-end:"D:\smdesign\src\pages\historiador\historiador.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["f" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["a" /* AlertController */]])
     ], HistoriadorPage);

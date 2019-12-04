@@ -25748,9 +25748,9 @@ page-creditos .texto {
 }
 
 page-creditos .botaoVoltar {
+  content: url("/assets/imgs/botao-voltar.png");
   -webkit-transform: scale(0.8);
   transform: scale(0.8);
-  content: url("/assets/imgs/botao-voltar.png");
   position: absolute;
   -webkit-box-shadow: 1px 5px 6px 3px #4242428f;
   box-shadow: 1px 5px 6px 3px #4242428f;
